@@ -1,1 +1,7 @@
-
+rules:
+  - kind: domain
+    value: example.com
+    action: proxy
+  - kind: domain
+    value: news.example.com      # ← 新增
+    action: direct               # ← 新增
