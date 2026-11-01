@@ -1,7 +1,14 @@
+# QiaOrbit 规则表
+# kind:   domain（域名） | ip（网段） | app（进程名）
+# action: proxy（代理） | direct（直连） | reject（拦截）
 rules:
-  - kind: domain
-    value: example.com
-    action: proxy
-  - kind: domain
-    value: news.example.com      # ← 新增
-    action: direct               # ← 新增
+  # ── 应用（填进程名，不是显示名）──
+  - { kind: app, value: Cursor, action: proxy }
+  - { kind: app, value: "Google Chrome", action: proxy }
+  - { kind: app, value: WeChat, action: direct }
+
+  # ── 域名 ──
+  - { kind: domain, value: example.com, action: proxy }
+
+  # ── 网段 ──
+  - { kind: ip, value: 10.0.0.0/8, action: direct }
